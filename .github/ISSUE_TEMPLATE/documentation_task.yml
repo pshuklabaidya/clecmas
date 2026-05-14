@@ -1,0 +1,36 @@
+﻿name: Documentation Task
+description: Controlled documentation update
+title: "[Docs]: "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: textarea
+    id: doc_scope
+    attributes:
+      label: Documentation Scope
+      description: Identify the exact documentation file or section.
+    validations:
+      required: true
+
+  - type: textarea
+    id: authority
+    attributes:
+      label: Source Authority
+      description: Identify controlling sources and prohibited sources.
+    validations:
+      required: true
+
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Boundaries
+      description: State what the documentation must not claim.
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done Condition
+      description: Define completion criteria.
+    validations:
+      required: true

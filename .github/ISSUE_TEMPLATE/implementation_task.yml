@@ -1,0 +1,52 @@
+﻿name: Implementation Task
+description: Controlled implementation unit
+title: "[Implementation]: "
+labels: ["implementation", "needs-triage"]
+body:
+  - type: textarea
+    id: functional_scope
+    attributes:
+      label: Functional Scope
+      description: Define the exact implementation scope.
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_entities
+    attributes:
+      label: Data Entities Affected
+      description: List affected tables, models, schemas, records, or artifacts.
+    validations:
+      required: true
+
+  - type: textarea
+    id: authority_boundaries
+    attributes:
+      label: AI And Deterministic Authority Boundaries
+      description: State AI prohibitions, deterministic authority, and human-review gates.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests Required
+      description: Include positive tests, negative tests, fixtures, migrations, and security checks.
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out Of Scope
+      description: State what this issue must not implement.
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done Condition
+      description: Define the exact done condition.
+    validations:
+      required: true

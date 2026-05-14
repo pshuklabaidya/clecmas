@@ -1,0 +1,36 @@
+﻿name: Security And Repository Hygiene Task
+description: Security, CI, branch protection, dependency, secret, and repository hygiene work
+title: "[Security]: "
+labels: ["security", "repository-hygiene", "needs-triage"]
+body:
+  - type: textarea
+    id: control
+    attributes:
+      label: Control
+      description: Define the security or hygiene control.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk Addressed
+      description: Explain the risk addressed by this control.
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Define how the control will be verified.
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done Condition
+      description: Define completion criteria.
+    validations:
+      required: true

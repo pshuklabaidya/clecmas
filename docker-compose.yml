@@ -1,0 +1,86 @@
+﻿services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: clecmas
+      POSTGRES_USER: clecmas_app
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app-api:
+    build:
+      context: .
+    command: uvicorn clecmas.api.app:app --host 0.0.0.0 --port 8000
+    env_file:
+      - .env.example
+    environment:
+      CLECMAS_DB_HOST: db
+      CLECMAS_DB_PORT: "5432"
+    depends_on:
+      - db
+    secrets:
+      - db_password
+      - smtp_password
+      - openai_api_key
+      - anthropic_api_key
+      - gemini_api_key
+      - azure_openai_api_key
+    volumes:
+      - ./.local/evidence:/var/lib/clecmas/evidence
+      - ./.local/exports:/var/lib/clecmas/exports
+      - ./.local/backups:/var/lib/clecmas/backups
+    ports:
+      - "8000:8000"
+
+  app-ui:
+    build:
+      context: .
+    command: streamlit run src/clecmas/ui/app.py --server.address 0.0.0.0 --server.port 8501
+    env_file:
+      - .env.example
+    depends_on:
+      - app-api
+    ports:
+      - "8501:8501"
+
+  worker:
+    build:
+      context: .
+    command: python -m clecmas.worker.main
+    env_file:
+      - .env.example
+    depends_on:
+      - db
+    secrets:
+      - db_password
+      - smtp_password
+      - openai_api_key
+      - anthropic_api_key
+      - gemini_api_key
+      - azure_openai_api_key
+    volumes:
+      - ./.local/evidence:/var/lib/clecmas/evidence
+      - ./.local/exports:/var/lib/clecmas/exports
+      - ./.local/backups:/var/lib/clecmas/backups
+
+volumes:
+  postgres_data:
+
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
+  smtp_password:
+    file: ./secrets/smtp_password.txt
+  openai_api_key:
+    file: ./secrets/openai_api_key.txt
+  anthropic_api_key:
+    file: ./secrets/anthropic_api_key.txt
+  gemini_api_key:
+    file: ./secrets/gemini_api_key.txt
+  azure_openai_api_key:
+    file: ./secrets/azure_openai_api_key.txt

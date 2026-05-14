@@ -1,0 +1,60 @@
+﻿name: Rules Engine Task
+description: Controlled living-rules-engine task
+title: "[Rules]: "
+labels: ["rules-engine", "needs-triage"]
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Functional Scope
+      description: State the specific rules-registry component. Do not combine the entire rules engine into one issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_authority
+    attributes:
+      label: Source And Provenance Requirements
+      description: Identify approved source, hashing, provenance, citation, and review requirements.
+    validations:
+      required: true
+
+  - type: textarea
+    id: human_review
+    attributes:
+      label: Human Review Requirements
+      description: Identify reviewer actions, approval states, and audit trail requirements.
+    validations:
+      required: true
+
+  - type: textarea
+    id: deterministic_authority
+    attributes:
+      label: Deterministic Authority Requirements
+      description: State what may affect compliance status and what may not.
+    validations:
+      required: true
+
+  - type: textarea
+    id: ai_boundary
+    attributes:
+      label: AI Boundary
+      description: State permitted AI assistance and prohibited AI authority.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests And Fixtures
+      description: Include regression fixtures, negative tests, authorization tests, and audit tests.
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out Of Scope
+      description: State related rules-engine work excluded from this issue.
+    validations:
+      required: true
