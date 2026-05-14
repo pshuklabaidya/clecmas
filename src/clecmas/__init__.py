@@ -1,1 +1,1 @@
-﻿"""CLECMAS package scaffold."""
+"""CLECMAS package scaffold."""

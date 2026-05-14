@@ -1,1 +1,1 @@
-﻿"""Streamlit UI package."""
+"""Streamlit UI package."""

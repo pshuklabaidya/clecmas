@@ -1,1 +1,1 @@
-﻿"""Worker package."""
+"""Worker package."""

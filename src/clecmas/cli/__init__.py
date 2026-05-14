@@ -1,1 +1,1 @@
-﻿"""Command-line package."""
+"""Command-line package."""

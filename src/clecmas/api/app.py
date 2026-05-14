@@ -1,4 +1,4 @@
-﻿from fastapi import FastAPI
+from fastapi import FastAPI
 
 app = FastAPI(title="CLECMAS", version="0.1.0")
 

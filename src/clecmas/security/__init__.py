@@ -1,1 +1,1 @@
-﻿"""Security package."""
+"""Security package."""

@@ -1,1 +1,1 @@
-﻿"""Audit package."""
+"""Audit package."""
